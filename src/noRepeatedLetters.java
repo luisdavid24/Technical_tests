@@ -19,9 +19,6 @@ public class noRepeatedLetters {
                 stringBuffer.append(c);
             }
         }
-
-
-
         return stringBuffer;
     }
 }
