@@ -4,8 +4,8 @@ public class dailyTemperatures {
 
     public static void main(String[] args) {
         int[] vector= {73,74,75,71,69,72,76,73};
-        SolutionTwoSum solu= new SolutionTwoSum();
-        int[] vectorSolu=solu.dailyTemperatures(vector);
+        SolutionDailyTemperatures elementDailyTemperatures= new SolutionDailyTemperatures();
+        int[] vectorSolu=elementDailyTemperatures.dailyTemperatures(vector);
         for(int element: vectorSolu){
             System.out.print(element+" ");
         }
@@ -14,7 +14,7 @@ public class dailyTemperatures {
     }
 }
 
-class Solution {
+class SolutionDailyTemperatures {
     public int[] dailyTemperatures(int[] temperatures) {
         int[] result = new int[temperatures.length];
         Stack<Integer> stack = new Stack<>();

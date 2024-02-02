@@ -3,8 +3,12 @@ import java.util.HashMap;
 public class twoSum {
 
     public static void main(String[] args) {
-
-        System.out.println("Hello world!");
+        SolutionTwoSum elementTwoSum = new SolutionTwoSum();
+        int[] vector={2,7,11,15};
+        int[] solutionTwoSum=elementTwoSum.twoSum(vector,9);
+        for(int e: solutionTwoSum){
+            System.out.println(e);
+        }
     }
 }
 
@@ -25,6 +29,7 @@ class SolutionTwoSum {
         return new int[0];
 
     }
+
 }
 
 
