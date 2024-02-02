@@ -4,7 +4,7 @@ public class dailyTemperatures {
 
     public static void main(String[] args) {
         int[] vector= {73,74,75,71,69,72,76,73};
-        Solution solu= new Solution();
+        SolutionTwoSum solu= new SolutionTwoSum();
         int[] vectorSolu=solu.dailyTemperatures(vector);
         for(int element: vectorSolu){
             System.out.print(element+" ");
