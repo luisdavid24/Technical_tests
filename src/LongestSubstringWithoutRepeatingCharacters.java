@@ -1,18 +1,43 @@
-public class LongestSubstringWithoutRepeatingCharacters {
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
+public class LongestSubstringWithoutRepeatingCharacters {
+    public static void main(String[] args) {
+        SolutionLongestSubstringWithoutRepeatingCharacters element= new SolutionLongestSubstringWithoutRepeatingCharacters();
+        String s = "pwwkew";
+
+        System.out.println(element.lengthOfLongestSubstring(s));
+
+
+    }
 
 }
 
 
 class SolutionLongestSubstringWithoutRepeatingCharacters{
-    public int lengthOfLongestSubstring(String s) {
-        char[] vector=s.toCharArray();
 
-        return 0;
+
+    public int lengthOfLongestSubstring(String s) {
+        int n = s.length();
+        int i = 0, j = 0, maxLen = 0;
+        Set<Character> charSet = new HashSet<>();
+
+        while (j < n) {
+            if (!charSet.contains(s.charAt(j))) {
+                charSet.add(s.charAt(j));
+                maxLen = Math.max(maxLen, j - i + 1);
+                j++;
+            } else {
+                charSet.remove(s.charAt(i));
+                i++;
+            }
+        }
+
+        return maxLen;
+
     }
 }
-
-
 
 /*
 
