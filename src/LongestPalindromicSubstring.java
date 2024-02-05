@@ -1,16 +1,51 @@
 public class LongestPalindromicSubstring {
 
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        SolLongestPalindromicSubstring element= new SolLongestPalindromicSubstring();
+        String s = "cbbd";
+        System.out.println(element.longestPalindrome(s));
     }
 }
 
 
 
 class SolLongestPalindromicSubstring {
-    public String longestPalindrome(String s) {
 
-        return s;
+    public boolean isTheSame(String s){
+        int i=0;
+        int j=s.length()-1;
+        while(i<s.length() && j>i) {
+            if(s.charAt(i)!= s.charAt(j)){
+                return false;
+            }
+            j--;
+            i++;
+        }
+
+
+        return true;
+    }
+    public String longestPalindrome(String s) {
+        String result="";
+        String aux="";
+        for(int i=0;i<s.length();i++){
+            for(int j=s.length();j>i;j--){
+                aux=s.substring(i,j);
+                if(isTheSame(aux)){
+                    break;
+                }
+
+
+            }
+            if(aux.length()>result.length()){
+                result=aux;
+            }
+
+            aux="";
+
+        }
+        return result;
     }
 }
 /*
