@@ -1,6 +1,19 @@
 public class MedianOfTwoSortedArrays {
+    SolMedianTwoSortedArrays solutionObject= new SolMedianTwoSortedArrays();
+    int[] vector={1,3};
+    
+
+
+
 }
 
+
+class SolMedianTwoSortedArrays {
+    public SolMedianTwoSortedArrays(){}
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        return 0;
+    }
+}
 
 
 /*
