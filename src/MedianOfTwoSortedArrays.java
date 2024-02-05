@@ -1,7 +1,16 @@
 public class MedianOfTwoSortedArrays {
-    SolMedianTwoSortedArrays solutionObject= new SolMedianTwoSortedArrays();
-    int[] vector={1,3};
-    
+
+    public static void main(String[] args) {
+        SolMedianTwoSortedArrays solutionObject= new SolMedianTwoSortedArrays();
+        int[] vector={1,3};
+        int[] vector2={2};
+        System.out.println(solutionObject.findMedianSortedArrays(vector,vector2));
+
+    }
+
+
+
+
 
 
 
@@ -9,9 +18,17 @@ public class MedianOfTwoSortedArrays {
 
 
 class SolMedianTwoSortedArrays {
-    public SolMedianTwoSortedArrays(){}
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        return 0;
+        int n= nums1.length+ nums2.length;
+        int sum=0;
+        for(int e:nums1){
+            sum+=e;
+        }
+        for(int e:nums2){
+            sum+=e;
+        }
+
+        return (double)sum/n;
     }
 }
 
