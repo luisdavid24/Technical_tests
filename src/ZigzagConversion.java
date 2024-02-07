@@ -6,7 +6,7 @@ public class ZigzagConversion {
 
         SolutionZigzagConversion element= new SolutionZigzagConversion();
         String variable="PAYPALISHIRING";
-        int rows=3;
+        int rows=4;
         System.out.println(element.convert(variable,rows));
 
     }
@@ -16,6 +16,38 @@ public class ZigzagConversion {
 
 class SolutionZigzagConversion {
     public String convert(String s, int numRows) {
+                if (numRows == 1 || s.length() <= numRows) {
+                    return s;
+                }
+
+                StringBuilder[] rows = new StringBuilder[numRows];
+                for (int i = 0; i < numRows; i++) {
+                    rows[i] = new StringBuilder();
+                }
+
+                int currentRow = 0;
+                boolean goingDown = false;
+
+                for (char c : s.toCharArray()) {
+                    rows[currentRow].append(c);
+                    System.out.println(currentRow);
+                    if (currentRow == 0 || currentRow == numRows - 1) {
+                        goingDown = !goingDown;
+                    }
+                    currentRow += goingDown ? 1 : -1;
+                }
+
+
+
+                StringBuilder result = new StringBuilder();
+                for (StringBuilder row : rows) {
+                    result.append(row);
+                }
+                return result.toString();
+            }
+}
+
+        /*
         int columns=s.length();
         String[][] matrix= new String[numRows][columns];
 
@@ -69,9 +101,9 @@ class SolutionZigzagConversion {
 
             }
         }
-        return result;
-    }
-}
+        return result;*/
+
+
 
 
 
