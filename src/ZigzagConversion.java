@@ -6,7 +6,7 @@ public class ZigzagConversion {
 
         SolutionZigzagConversion element= new SolutionZigzagConversion();
         String variable="PAYPALISHIRING";
-        int rows=4;
+        int rows=3;
         System.out.println(element.convert(variable,rows));
 
     }
@@ -21,55 +21,55 @@ class SolutionZigzagConversion {
 
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j <  columns; j++) {
-                    matrix[i][j] = "*";
+                    matrix[i][j] = ".";
             }
         }
-        for (int i = 0; i < numRows; i++) {
-            for (int j = 0; j < columns; j++) {
-                System.out.print(matrix[i][j] + " ");
-            }
-            System.out.println();
-        }
+
+        char[] letras = s.toCharArray();
 
 
-        System.out.println("          //////        "+columns);
-        int k=0,aux=1,posColumna=0,posfila=0;
-        while(k<12){
+
+
+        int k=0,posColumna=0,posfila=0;
+
+        while(k<letras.length){
             for(int i=0;i<numRows;i++){
-                matrix[posfila][posColumna] = "k";
-                matrix[posfila][posColumna] = s.substring(k,aux);
-                posfila++;
-                k++;
-                aux++;
-
+                if(k<letras.length){
+                    matrix[posfila][posColumna]=new String(String.valueOf(letras[k]));
+                    posfila++;
+                    k++;
+                }else{
+                    break;
+                }
             }
             posfila--;
             for(int i=0;i<numRows-2;i++){
-                posfila--;
-                posColumna++;
-                matrix[posfila][posColumna] = s.substring(k,aux);
-                k++;
-                aux++;
+                if(k<letras.length){
+                    posfila--;
+                    posColumna++;
+                    matrix[posfila][posColumna] =new String(String.valueOf(letras[k]));
+                    k++;
+                }else{
+                    break;
+                }
+
             }
             posColumna++;
             posfila--;
 
+
         }
 
-
-
-        //matrix[0][0] = s.substring(1,2);
-
+        String result="";
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < columns; j++) {
-                System.out.print(matrix[i][j] + " ");
+                if(matrix[i][j]!="."){
+                    result=result.concat(matrix[i][j]);
+                }
+
             }
-            System.out.println();
         }
-
-
-
-        return null;
+        return result;
     }
 }
 
