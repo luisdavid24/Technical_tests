@@ -1,11 +1,43 @@
 public class ReverseInteger {
+
+    public static void main(String[] args) {
+
+        SolutionReverseInteger element= new SolutionReverseInteger();
+        System.out.println(element.reverse(90320));
+
+    }
 }
 
 
 
 class SolutionReverseInteger {
     public int reverse(int x) {
-        return 0;
+        if(x < -2147483648 || x>2147483641 ){
+            return 0;
+        }
+        String cadena=String.valueOf(x);
+        char[] vector=cadena.toCharArray();
+        char[] vector2=cadena.toCharArray();
+        char negativo='-';
+        char cero='0';
+        int j=0;
+        if(negativo == vector[0]){
+            vector2[j]=negativo;
+            j++;
+            for(int i=vector.length-1;i>0;i--){
+                vector2[j]=vector[i];
+                j++;
+            }
+        }else{
+            for(int i=vector.length-1;i>=0;i--){
+                vector2[j]=vector[i];
+                j++;
+            }
+        }
+
+        cadena=new String(vector2);
+        int result=Integer.parseInt(cadena);
+        return result;
     }
 }
 
