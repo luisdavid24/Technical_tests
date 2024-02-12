@@ -2,6 +2,9 @@ public class StringToInteger {
     public static void main(String[] args) {
 
         System.out.println("Hello world!");
+        SolutionStringToInteger elemet= new SolutionStringToInteger();
+        String  s = "42";
+        System.out.println(elemet.myAtoi(s));
     }
 }
 
@@ -9,6 +12,19 @@ public class StringToInteger {
 
 class SolutionStringToInteger{
     public int myAtoi(String s) {
+
+        int index = 0, sign = 1, total = 0;
+
+        // Remove leading whitespace
+        while (index < s.length() && s.charAt(index) == ' ') {
+            index++;
+        }
+
+        if (index < s.length() && (s.charAt(index) == '+' || s.charAt(index) == '-')) {
+            sign = (s.charAt(index) == '-') ? -1 : 1;
+            index++;
+        }
+        System.out.println(index);
         return  0;
     }
 }
