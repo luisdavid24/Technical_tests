@@ -24,8 +24,21 @@ class SolutionStringToInteger{
             sign = (s.charAt(index) == '-') ? -1 : 1;
             index++;
         }
-        System.out.println(index);
-        return  0;
+
+        while (index < s.length() && Character.isDigit(s.charAt(index))) {
+            int digit = s.charAt(index) - '0';
+
+            // Check for overflow
+            if (total > Integer.MAX_VALUE / 10 || (total == Integer.MAX_VALUE / 10 && digit > 7)) {
+                return (sign == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }
+
+            total = total * 10 + digit;
+            index++;
+        }
+
+
+        return total * sign;
     }
 }
 
