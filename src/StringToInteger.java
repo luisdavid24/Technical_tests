@@ -15,7 +15,6 @@ class SolutionStringToInteger{
 
         int index = 0, sign = 1, total = 0;
 
-        // Remove leading whitespace
         while (index < s.length() && s.charAt(index) == ' ') {
             index++;
         }
@@ -28,7 +27,6 @@ class SolutionStringToInteger{
         while (index < s.length() && Character.isDigit(s.charAt(index))) {
             int digit = s.charAt(index) - '0';
 
-            // Check for overflow
             if (total > Integer.MAX_VALUE / 10 || (total == Integer.MAX_VALUE / 10 && digit > 7)) {
                 return (sign == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             }
