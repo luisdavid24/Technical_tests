@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class JavaMultithreading {
 
     public static void main(String[] args) {
@@ -16,10 +18,22 @@ class Corredor implements  Runnable{
         this.distanciaRecorrida = 0;
     }
 
-
-
     @Override
     public void run() {
+        Random rand = new Random();
+        while (distanciaRecorrida < distanciaTotal) {
+            // Avance aleatorio
+            int avance = rand.nextInt(11); // Avance entre 0 y 10 metros
+            distanciaRecorrida += avance;
+            // Mostrar progreso
+            System.out.println(nombre + " ha recorrido " + distanciaRecorrida + " metros.");
+            try {
+                Thread.sleep(100); // Simular tiempo de avance
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println(nombre + " ha terminado la carrera!");
 
     }
 }
