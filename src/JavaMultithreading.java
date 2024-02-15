@@ -18,6 +18,16 @@ public class JavaMultithreading {
             hilos[i].start();
         }
 
+        for (Thread hilo : hilos) {
+            try {
+                hilo.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
 
     }
 }
