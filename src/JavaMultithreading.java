@@ -4,7 +4,7 @@ public class JavaMultithreading {
 
     public static void main(String[] args) {
 
-        final int DISTANCIA_TOTAL = 100; // Distancia de la carrera
+        final int DISTANCIA_TOTAL = 20; // Distancia de la carrera
         Corredor[] corredores = {
                 new Corredor("Anderson", DISTANCIA_TOTAL),
                 new Corredor("Sergio", DISTANCIA_TOTAL),
@@ -26,6 +26,15 @@ public class JavaMultithreading {
             }
         }
 
+        int distanciaMaxima = 0;
+        String ganador = "";
+        for (Corredor corredor : corredores) {
+            if (corredor.getDistanciaRecorrida() > distanciaMaxima) {
+                distanciaMaxima = corredor.getDistanciaRecorrida();
+                ganador = corredor.getNombre();
+            }
+        }
+        System.out.println("El ganador es: " + ganador);
 
 
 
@@ -36,6 +45,14 @@ class Corredor implements  Runnable{
     private String nombre;
     private int distanciaTotal;
     private int distanciaRecorrida;
+
+    public int getDistanciaRecorrida() {
+        return distanciaRecorrida;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
 
     public Corredor(String nombre, int distanciaTotal) {
         this.nombre = nombre;
