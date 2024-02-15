@@ -4,6 +4,21 @@ public class JavaMultithreading {
 
     public static void main(String[] args) {
 
+        final int DISTANCIA_TOTAL = 100; // Distancia de la carrera
+        Corredor[] corredores = {
+                new Corredor("Anderson", DISTANCIA_TOTAL),
+                new Corredor("Sergio", DISTANCIA_TOTAL),
+                new Corredor("Luis", DISTANCIA_TOTAL)
+        };
+
+        Thread[] hilos = new Thread[corredores.length];
+
+        for (int i = 0; i < corredores.length; i++) {
+            hilos[i] = new Thread(corredores[i]);
+            hilos[i].start();
+        }
+
+
     }
 }
 
