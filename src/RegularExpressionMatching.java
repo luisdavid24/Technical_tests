@@ -1,10 +1,18 @@
 public class RegularExpressionMatching {
+
+    public static void main(String[] args) {
+        SolRegularExpressionMatching element= new SolRegularExpressionMatching();
+        String s="a",p="a";
+        element.isMatch(s,p);
+
+        System.out.println(element.isMatch(s,p));
+    }
 }
 
 
 class SolRegularExpressionMatching {
     public boolean isMatch(String s, String p) {
-        return false;
+        return true;
     }
 }
 
