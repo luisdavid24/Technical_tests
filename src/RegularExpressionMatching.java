@@ -2,8 +2,8 @@ public class RegularExpressionMatching {
 
     public static void main(String[] args) {
         SolRegularExpressionMatching element= new SolRegularExpressionMatching();
-        String s="a",p="a";
-        element.isMatch(s,p);
+        String s="a",p=".";
+
 
         System.out.println(element.isMatch(s,p));
     }
@@ -12,6 +12,14 @@ public class RegularExpressionMatching {
 
 class SolRegularExpressionMatching {
     public boolean isMatch(String s, String p) {
+        
+        if(p.indexOf(".")!=-1){
+            System.out.println("Se encontro: .");
+        }
+        if(p.indexOf("*")!=-1){
+            System.out.println("Se encontro: *");
+        }
+
         return true;
     }
 }
