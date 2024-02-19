@@ -2,7 +2,7 @@ public class RegularExpressionMatching {
 
     public static void main(String[] args) {
         SolRegularExpressionMatching element= new SolRegularExpressionMatching();
-        String s="a",p=".";
+        String s="a",p="d";
 
 
         System.out.println(element.isMatch(s,p));
@@ -12,6 +12,11 @@ public class RegularExpressionMatching {
 
 class SolRegularExpressionMatching {
     public boolean isMatch(String s, String p) {
+        int m = s.length();
+        int n = p.length();
+
+        boolean[][] dp = new boolean[m + 1][n + 1];
+        dp[0][0] = true;
         
         if(p.indexOf(".")!=-1){
             System.out.println("Se encontro: .");
