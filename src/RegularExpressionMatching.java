@@ -31,7 +31,7 @@ class SolRegularExpressionMatching {
             }
         }
 
-       
+
         return dp[m][n];
     }
 }
