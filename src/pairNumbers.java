@@ -1,37 +1,22 @@
 import java.util.Random;
+import java.util.Arrays;
 
 public class pairNumbers {
- 
+
     public static void main(String[] args) {
-        int[] array=generateAnArray(3);
-        System.out.println("This is the result: "+sumPairNumber(array));
-        System.out.println("This is the array: ");
-        seeArray(array);
+        int[] array = generateAnArray(3);
+        System.out.println("This is the result: " + sumPairNumber(array));
+        System.out.println("This is the array: " + Arrays.toString(array));
     }
-    public static int[] generateAnArray(int size){
-        int[] array = new int[size];
+
+    public static int[] generateAnArray(int size) {
         Random random = new Random();
-        
-        for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(21);
-        }
-        
-        return array;
+        return random.ints(size, 0, 21).toArray();
     }
 
-    public static void seeArray(int[] array){
-        for(int element:array){
-            System.out.print(element+" ");
-        }
+    public static int sumPairNumber(int[] array) {
+        return Arrays.stream(array)
+                     .filter(element -> element % 2 == 0)
+                     .sum();
     }
-    public static int sumPairNumber(int[] array){
-        int aux=0;
-        for(int element:array){
-            if(element%2==0){
-                aux+=element;
-            }
-        }
-        return aux;
-    }
-
 }
