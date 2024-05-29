@@ -6,14 +6,12 @@ public class factorialNumber {
     }
 
     public static int factorial(int number){
-        int aux=1;
-        for(int i=number;i>=0;i--){
-            if(i==0){
-                return aux;
-            }
-            aux*=i;
+        int aux = 1;
+        for (int i = 1; i <= number; i++) {
+            aux *= i;
         }
         return aux;
+        
     }
     
 }
